@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 
-const poppins = Montserrat ({ weight: '600', subsets: ['latin'] });
+const montserrat = Montserrat ({ weight: '600', subsets: ['latin'] });
 
 const routes = [
   {
@@ -64,7 +64,7 @@ const Sidebar = () => {
           <div className="relative h-8 w-8 mr-4">
             <Image fill alt="Logo" src="/logo.png" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
           </div>
-          <h1 className={cn("text-2xl font-bold", poppins.className)}>
+          <h1 className={cn("text-2xl font-bold", montserrat.className)}>
             Genius
           </h1>
         </Link>
