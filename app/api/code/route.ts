@@ -1,9 +1,10 @@
-import OpenAI from 'openai';
+
 
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
-import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
+import OpenAI from "openai4";
+import ChatCompletionMessageParam from "openai4";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY

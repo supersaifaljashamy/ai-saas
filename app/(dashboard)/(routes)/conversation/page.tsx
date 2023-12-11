@@ -21,7 +21,7 @@ import { BotAvatar } from "@/components/bot-avatar";
 
 import { formSchema } from "./constants";
 
-import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
+import ChatCompletionMessageParam from "openai4";
 
 const ConversationPage = () => {
     const router = useRouter();
