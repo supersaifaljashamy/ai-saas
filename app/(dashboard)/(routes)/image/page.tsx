@@ -20,8 +20,10 @@ import { Loader } from "@/components/loader";
 import { Empty } from "@/components/empty";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 const ImagePage = () => {
+  const proModal = useProModal();
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
 
@@ -48,7 +50,9 @@ const ImagePage = () => {
 
       form.reset();
     } catch (error: any) {
-        console.log(error);
+      if(error.response.status === 403){
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }

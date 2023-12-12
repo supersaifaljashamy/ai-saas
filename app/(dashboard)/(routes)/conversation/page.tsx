@@ -2,14 +2,13 @@
 
 import axios from "axios";
 import * as z from "zod";
-import { MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/lib/utils";
-
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { MessageSquare } from "lucide-react";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -22,8 +21,10 @@ import { BotAvatar } from "@/components/bot-avatar";
 import { formSchema } from "./constants";
 
 import ChatCompletionMessageParam from "openai4";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 const ConversationPage = () => {
+    const proModal = useProModal();
     const router = useRouter();
     const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([]);
 
@@ -46,7 +47,9 @@ const ConversationPage = () => {
 
             form.reset();
         } catch (error: any) {
-            console.log(error);
+            if(error.response.status === 403){
+                proModal.onOpen();
+            }
         } finally {
             router.refresh();
         }
