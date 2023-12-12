@@ -19,8 +19,6 @@ import { Loader } from "@/components/loader";
 
 import { formSchema } from "./constants";
 
-import ChatCompletionMessageParam from "openai4";
-
 const MusicPage = () => {
     const router = useRouter();
     const [music, setMusic] = useState<string>();
