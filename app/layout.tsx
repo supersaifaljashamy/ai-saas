@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <link rel="icon" href="/logo.png" />
         <CrispProvider />
         <body className={inter.className}>
           <ModalProvider />
